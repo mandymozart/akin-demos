@@ -1,0 +1,12 @@
+{
+  "../src/lib/@akin/main.ts": {
+    "file": "akin.umd.cjs",
+    "name": "main",
+    "src": "../src/lib/@akin/main.ts",
+    "isEntry": true
+  },
+  "style.css": {
+    "file": "akin.css",
+    "src": "style.css"
+  }
+}
