@@ -1,0 +1,362 @@
+/* @override 
+	https://preview.thetyee.ca/design-article.thetyee.ca/ui/css/print.css?* */
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+
+@page {
+      margin: 2cm;
+}
+
+/* Set body width to limit the variability of browser print driver scaling */
+body {
+    width: 800px !important;
+}
+
+header .category-label, header strong {
+display:none !important;
+}
+
+#ad-auris-iframe {
+display:none !important;
+}
+
+body {
+      color: #000;
+      background: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.39em;
+}
+
+iframe {
+    background-color: 777;
+}
+
+
+
+/* HIDE ELEMENTS THAT ARE NOT REQUIRED IN PRINT  =================================== */
+
+.hide-print, #om-zc4zqugunpu882seo8vt-holder, .ad-banner, .mobile-toggle button, .search-block, .tool-bar, .ad-box, .series-box, aside .fact-box, .related-story, .presents-box, .messaging-block, .related-event-box, 
+.messaging-zone, #filed-in, #latest_bottom_wrap, .latest-stories, .comments-section, footer, .new-site-header, .story aside.ad-box--bigbox {
+    display: none !important;
+}
+
+
+
+/* Hide wide viewport nav (required for Safari) */
+#bs-example-navbar-collapse-1 {
+    display: none !important;
+}
+
+/* eliminate dropcaps (print driver rendering seems inconsistent) */
+.lead-in:first-letter {
+    display: inline;
+    overflow: hidden;
+    float: inherit;
+    padding-right: inherit;
+    padding-bottom:inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-transform: inherit;
+    color: inherit;
+}
+
+
+
+/* SHOW ELEMENTS THAT ARE REQUIRED IN PRINT  =================================== */
+   
+
+/* Show narrow viewport nav (required for Safari) */
+header.site__header, .narrow-menu, .navbar {
+    display: block !important;
+}
+
+/* Show fact-box at bottom of story (as in narrow viewports) */
+div.fact-box {
+    display: block;
+}
+
+
+
+/* PAGE BREAK STYLES  ============================================================= */
+
+h1, h2, h3, h4 {
+   page-break-after: avoid;
+}
+
+img, figure, aside, .pullquote {
+   page-break-inside: avoid;
+}
+
+img {
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
+}
+
+img.responsive-img {
+ max-height:35vw !important;
+height: auto !important;
+width: auto !important;
+
+}
+
+/* HEADER STYLES  ============================================================= */
+
+.site__header {
+    height: 25px;
+}
+
+.site-nav {
+    padding-top: 0px;
+    border: none;
+}
+
+.narrow-menu {
+    min-height: 52px;
+    position: relative;
+    color: #929292;
+    border: none;
+}
+
+.mobile-toggle, .narrow__search {
+    height: 30px;
+    border-bottom-style: double;
+    width: 37%
+}
+
+.site-nav .col-xs-6 {
+    width: 26%;
+}
+
+#site-logo {
+    position: absolute;
+    top: 0;
+    width: 75%;
+    margin-left: 5.25%;
+}
+
+h6.category-label {
+    margin-top: 2em;
+}
+
+.badge--headline-placement {
+    margin-top: .1em;
+}
+
+
+
+/* FIGURE STYLES  ============================================================= */
+
+figure, .figure--xl, .figure--xxl, aside, .aside {
+    position: relative;
+    left: 0;
+    float: none;
+    clear: none;    
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 0 !important; 
+    padding: 0;
+
+}
+
+.featured-media {
+    position: relative;
+    left: 0;
+    max-width: 800px;
+    margin: 0 auto 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0 !important; /* Eliminates negative margins imposed by js when 
+    featured image is shorter than the ad */
+}
+
+
+
+/* MEDIA STYLES  ============================================================= */
+/* Hides embedded media objects. Adds a grey background to their container and labels
+the block as a media player. */
+
+
+figure {
+    position: relative;
+}
+
+.responsive-embed {
+    padding-bottom: 25%;
+}
+
+.responsive-embed iframe {
+    display:none;
+}
+
+/* Use border hack to create a printing background color. */
+.responsive-embed:before {
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -99999999;
+   text-align: center;
+   content: "";
+   border: solid 500px #ddd; 
+}
+
+.responsive-embed:after {
+   display: block;
+   margin: 11% auto 2em auto;
+   text-align: center;
+   content: "[ MEDIA PLAYER ]";
+   font-size: .9em;
+   font-family:;
+   line-height:1em;
+   font-weight: 400;
+   letter-spacing: 0.15em;
+}
+
+
+/* LINK STYLES  ============================================================= */
+
+article a {
+  /* font-weight: bolder;*/
+  text-decoration: none;
+}
+
+/* Hide unwanted link urls */
+.site__header a:after, .article__header a:after {
+  content: none;
+}
+
+
+/* Show link urls */
+section.featured-media a[href^=http]:after, article a[href^=http]:after {
+  content:" (" attr(href) ") ";
+  /*font-style: italic;*/
+  border-bottom: 1px solid white;  
+  color: #444;
+  word-wrap: break-word;
+}
+
+/* Hide anchor link decoration */
+article a[href^="#"] {
+   border: none;
+}
+
+/* Hide anchor link urls */
+article a[href^="#"]:after {
+   content: none;
+}
+
+/* Explain anchor links */
+article a[href^="#fact-box"]:after {
+   content: " [See fact-box at bottom of this article.]";
+}
+
+
+
+/* BLOCK QUOTES  ============================================================= */
+
+.blockquote {
+    margin: 1em 0 2em 0 !important;
+
+    page-break-inside: avoid;
+}
+
+    blockquote {
+        margin: 0 0 1rem 0 !important;
+        padding: 0rem 1.25rem !important;
+        border: none !important;
+        border-left: .3rem solid #eee !important;
+        font-size: .9em !important;
+        font-weight: 300 !important;
+
+        page-break-inside: avoid;
+    }
+
+    .blockquote figcaption {
+        padding: 0rem 1.55rem !important;
+        font-size: .9em !important;
+        font-weight: 300 !important;
+        font-style: italic !important;
+    }
+.popend {
+display:none;
+}
+
+/* ARTICLES  ============================================================= */
+
+
+
+.story > * {
+	font-family: "Tiempos Text", georgia, serif;
+}
+
+.story h1 {
+	font-family: "Tiempos Headline", georgia, serif;
+	font-size: 4rem;
+}
+
+.story h4 {
+	font-family: 'franklin-gothic-urw', Arial, sans-serif;
+	font-weight: normal;
+	line-height: 1.4;
+	margin-bottom: 25px;
+}
+
+.story h1, h2, h3, p, li, blockquote {
+	line-height: 1.5;
+}
+
+
+.story .author-info {
+	font-family: 'franklin-gothic-urw', Arial, sans-serif;
+	font-size: 1.7rem;
+}
+
+.story .author-info__date span {
+	margin-right: 5px;
+}
+
+.story .author-info__date span:first-of-type:before {
+	content: " / ";
+}
+
+.story .contrib-link {
+	font-weight: bold;
+}
+
+.story .author-info__bio p {
+	margin-bottom: 0;
+}
+
+.story .author-headshot {
+	width: 50px;
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+.story figure {
+	margin-bottom: 0;
+}
+
+.story figure img {
+	margin-bottom: 15px;
+}
+
+.story .caption {
+	font-size: 1.7rem;
+	margin-bottom: 15px;
+}
+a.tiktok {display:none;}

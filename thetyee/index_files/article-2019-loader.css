@@ -1,0 +1,46 @@
+/* @override 
+	http://127.0.0.1:4000/ui/css/article-2019-loader.css */
+
+/* ===========   Globals & Mixins   
+   2020: top navigation moved into a single file
+   and 2021: footer moved into a single file ====== */
+
+@import "global-nav.css?v=1"; 
+@import "global-footer.css";
+
+/*  ==== #FONTS === */
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,700,700italic,900,900italic,300,300italic);
+
+/* New brand fonts */
+@import "fonts-tiempos.css";
+@import "fonts-grey.css";
+@import "variables-2020.css"; /* Rethink changes for colour and fonts */
+
+/* ==========================================================================
+   #STORY-PAGE-STYLES
+   ========================================================================== */
+  /* NOTE: For jekyll dev purposes the main css code should be @import'ed rather
+  than directly <link>'ed in the header. <link>'ed CSS files are very slow to edit
+  with Chrome's devtools due to some kind of resource mapping bug. @import'ing
+  the CSS file seems to avoid the bug (or maybe prevent resource mapping).
+  Another thing to note is that the @import'ed stylesheet shouldn't itself contain
+  any @import declarations, otherwise you end up with yet another devtools bug
+  shitstorm and a headache the size of mother russia. */
+@import "article-2019.css?v=111111124";
+
+
+/* ==========================================================================
+   #FEATURE-STORY-PAGE-STYLES
+   ========================================================================== */
+  /* First implemented, Sep 2024, Cornelius Bergen, Matchbox Creative  */
+@import "article-feature.css";
+@import "article-feature-wide.css";
+
+/* ==========================================================================
+   #HEADER-BASIC-STYLES
+   ========================================================================== */
+  /* First implemented, Sep 2024, Cornelius Bergen, Matchbox Creative  */
+@import "header-basic.css";
+
+
